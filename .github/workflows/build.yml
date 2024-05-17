@@ -56,7 +56,7 @@ jobs:
       - name: Rename and Archive Windows artifacts
         run: |
           mv dist dist-windows
-          zip -r -9 pokerogue_windows.zip dist-windows
+          Compress-Archive -Path .\dist-windows\* -DestinationPath pokerogue_windows.zip -Force
 
       - name: Upload Windows artifacts
         uses: actions/upload-artifact@v2
