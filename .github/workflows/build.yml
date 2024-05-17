@@ -24,12 +24,16 @@ jobs:
       - name: Build for Linux
         run: npm run build
 
-      - name: Archive Linux artifacts
+      - name: Rename and Archive Linux artifacts
+        run: |
+          mv dist dist-linux
+          zip -r -9 pokerogue_linux.zip dist-linux
+
+      - name: Upload Linux artifacts
         uses: actions/upload-artifact@v2
         with:
-          name: dist-linux
-          path: dist
-          rename: Pokerogue-Standalone-Linux
+          name: pokerogue_linux
+          path: pokerogue_linux.zip
 
   build-windows:
     runs-on: windows-latest
@@ -49,12 +53,16 @@ jobs:
       - name: Build for Windows
         run: npm run build
 
-      - name: Archive Windows artifacts
+      - name: Rename and Archive Windows artifacts
+        run: |
+          mv dist dist-windows
+          zip -r -9 pokerogue_windows.zip dist-windows
+
+      - name: Upload Windows artifacts
         uses: actions/upload-artifact@v2
         with:
-          name: dist-windows
-          path: dist
-          rename: Pokerogue-Standalone-Win
+          name: pokerogue_windows
+          path: pokerogue_windows.zip
 
   upload-artifacts:
     needs: [build-linux, build-windows]
@@ -64,16 +72,16 @@ jobs:
       - name: Download Linux artifacts
         uses: actions/download-artifact@v2
         with:
-          name: dist-linux
+          name: pokerogue_linux
 
       - name: Download Windows artifacts
         uses: actions/download-artifact@v2
         with:
-          name: dist-windows
+          name: pokerogue_windows
 
       - name: Compress artifacts
         run: |
-          zip -r -9 pokerogue_artifacts.zip dist-linux dist-windows
+          zip -r -9 pokerogue_artifacts.zip pokerogue_linux pokerogue_windows
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
