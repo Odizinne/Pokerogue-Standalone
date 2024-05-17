@@ -1,7 +1,9 @@
 {
-  "name": "Pokerogue-Standalone",
+  "name": "Pokerogue",
   "version": "1.0.0",
+  "description": "Simple Pokerogue electron app",
   "main": "main.js",
+  "author": "Ozidinne",
   "scripts": {
     "start": "electron .",
     "build": "electron-builder --publish never"
@@ -9,5 +11,23 @@
   "devDependencies": {
     "electron": "^29.3.3",
     "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "files": [
+      "**/*",
+      "!node_modules/**",
+      "!README.md",
+      "!.gitignore",
+      "!**/.github/**",
+      "!icons/**"
+    ],
+    "win": {
+      "target": "dir",
+      "icon": "icons/PR.ico"
+    },
+    "linux": {
+      "target": "dir",
+      "icon": "icons/PR.png"
+    }
   }
 }
