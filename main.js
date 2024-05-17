@@ -4,21 +4,18 @@ let mainWindow;
 
 function createWindow() {
     mainWindow = new BrowserWindow({
-        width: 800,
-        height: 600,
-        fullscreen: true,
-        autoHideMenuBar: true,
+        width: 1280,
+        height: 720,
         webPreferences: {
             nodeIntegration: true,
-            // contextIsolation: false, // This is not needed for insertCSS
         }
     });
 
     mainWindow.loadURL('https://pokerogue.net/'); 
-
     mainWindow.webContents.on('did-finish-load', () => {
-        const cssToInject = 'body, html { cursor: none; }';
-        mainWindow.webContents.insertCSS(cssToInject);
+        mainWindow.webContents.insertCSS('body, html { cursor: none; }');
+        mainWindow.setMenuBarVisibility(false);
+        mainWindow.setFullScreen(true);
     });
 
     mainWindow.on('closed', function () {
