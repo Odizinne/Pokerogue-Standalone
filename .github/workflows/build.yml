@@ -1,0 +1,78 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-linux:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build for Linux
+        run: npm run build-linux
+
+      - name: Archive Linux artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: dist-linux
+          path: dist
+
+  build-windows:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build for Windows
+        run: npm run build-windows
+
+      - name: Archive Windows artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: dist-windows
+          path: dist
+
+  upload-artifacts:
+    needs: [build-linux, build-windows]
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download Linux artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: dist-linux
+
+      - name: Download Windows artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: dist-windows
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: release
+          path: |
+            ${{ github.workspace }}/dist-linux
+            ${{ github.workspace }}/dist-windows
