@@ -29,6 +29,7 @@ jobs:
         with:
           name: dist-linux
           path: dist
+          rename: Pokerogue-Standalone-Linux
 
   build-windows:
     runs-on: windows-latest
@@ -53,6 +54,7 @@ jobs:
         with:
           name: dist-windows
           path: dist
+          rename: Pokerogue-Standalone-Win
 
   upload-artifacts:
     needs: [build-linux, build-windows]
@@ -69,10 +71,12 @@ jobs:
         with:
           name: dist-windows
 
+      - name: Compress artifacts
+        run: |
+          zip -r -9 pokerogue_artifacts.zip dist-linux dist-windows
+
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
         with:
           name: release
-          path: |
-            ${{ github.workspace }}/dist-linux
-            ${{ github.workspace }}/dist-windows
+          path: pokerogue_artifacts.zip
