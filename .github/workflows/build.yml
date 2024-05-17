@@ -22,7 +22,7 @@ jobs:
         run: npm install
 
       - name: Build for Linux
-        run: npm run build-linux
+        run: npm run build
 
       - name: Archive Linux artifacts
         uses: actions/upload-artifact@v2
@@ -46,7 +46,7 @@ jobs:
         run: npm install
 
       - name: Build for Windows
-        run: npm run build-windows
+        run: npm run build
 
       - name: Archive Windows artifacts
         uses: actions/upload-artifact@v2
