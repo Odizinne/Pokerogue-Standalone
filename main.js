@@ -9,11 +9,17 @@ function createWindow() {
         fullscreen: true,
         autoHideMenuBar: true,
         webPreferences: {
-            nodeIntegration: true
+            nodeIntegration: true,
+            // contextIsolation: false, // This is not needed for insertCSS
         }
     });
 
     mainWindow.loadURL('https://pokerogue.net/'); 
+
+    mainWindow.webContents.on('did-finish-load', () => {
+        const cssToInject = 'body, html { cursor: none; }';
+        mainWindow.webContents.insertCSS(cssToInject);
+    });
 
     mainWindow.on('closed', function () {
         mainWindow = null;
@@ -33,5 +39,3 @@ app.on('activate', function () {
         createWindow();
     }
 });
-
-
