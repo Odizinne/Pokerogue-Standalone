@@ -1,5 +1,7 @@
 # Pokerogue-Standalone
 This is a simple electron app that runs Pokerogue on fullscreen by default.<br/>
+![image](https://github.com/Odizinne/Pokerogue-Standalone/assets/102679854/b3858bbd-aac1-4b2d-af00-44eebb035311)
+
 If you want a more featured app, please have a look at [Pokerogue-App](https://github.com/Admiral-Billy/Pokerogue-App) made by [Admiral-Billy](https://github.com/Admiral-Billy)
 
 ## Build
