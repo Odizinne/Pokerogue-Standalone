@@ -5,17 +5,19 @@ let mainWindow;
 function createWindow() {
     mainWindow = new BrowserWindow({
         width: 1280,
-        height: 720,
+        height: 749,
+        show: false,
         webPreferences: {
             nodeIntegration: true,
         }
     });
 
-    mainWindow.loadURL('https://pokerogue.net/'); 
+    mainWindow.loadURL('https://pokerogue.net/');
     mainWindow.webContents.on('did-finish-load', () => {
         mainWindow.webContents.insertCSS('body, html { cursor: none; }');
         mainWindow.setMenuBarVisibility(false);
         mainWindow.setFullScreen(true);
+        mainWindow.show();
     });
 
     mainWindow.on('closed', function () {
