@@ -1,0 +1,31 @@
+name: Build test linux
+
+on:
+  push:
+    branches-ignore:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '20'
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Build for Linux
+      run: npm run build:linux-zip
+
+    - name: Upload Linux Artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: Pokerogue-Linux
+        path: ./dist/Pokerogue-Linux.zip
