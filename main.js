@@ -18,11 +18,29 @@ function createWindow() {
         mainWindow.setMenuBarVisibility(false);
         mainWindow.setFullScreen(true);
         mainWindow.show();
+        setupMouseMoveHandler();
     });
 
     mainWindow.on('closed', function () {
         mainWindow = null;
     });
+}
+
+function setupMouseMoveHandler() {
+    mainWindow.webContents.executeJavaScript(`
+        let startCursorTimer = function() {
+            cursorTimeout = setTimeout(() => {
+                document.body.style.cursor = 'none';
+            }, 3000);
+        };
+
+        let cursorTimeout;
+        document.addEventListener('mousemove', function() {
+            clearTimeout(cursorTimeout);
+            document.body.style.cursor = 'default';
+            startCursorTimer();
+        });
+    `);
 }
 
 app.on('ready', createWindow);
