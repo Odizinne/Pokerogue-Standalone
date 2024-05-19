@@ -46,7 +46,9 @@ function createWindow() {
 
         mainWindow.setMenuBarVisibility(false);
         setupMouseMoveHandler();
-        setupRequestInterceptor();
+        //setupRequestInterceptor();
+        mainWindow.setFullScreen(true);
+        mainWindow.show();
     });
 
     mainWindow.on('closed', () => {
