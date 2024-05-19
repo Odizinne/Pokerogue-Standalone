@@ -54,10 +54,6 @@ function setupRequestInterceptor() {
         console.error('Debugger attach failed:', err);
     }
 
-    webContents.debugger.on('detach', (event, reason) => {
-        console.log('Debugger detached due to:', reason);
-    });
-
     webContents.debugger.on('message', (event, method, params) => {
         if (method === 'Network.responseReceived') {
             const { response } = params;
@@ -65,6 +61,7 @@ function setupRequestInterceptor() {
                 console.log(`MP4 file requested: ${response.url}`);
                 mainWindow.setFullScreen(true);
                 mainWindow.show();
+                webContents.debugger.detach(); // Detach debugger after intercepting the file
             }
         }
     });
