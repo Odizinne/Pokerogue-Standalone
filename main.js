@@ -18,13 +18,23 @@ function createWindow() {
         mainWindow.webContents.insertCSS(`
             body, html {
                 cursor: none;
+                margin: 0;
+                padding: 0;
+                overflow: hidden; /* Prevent scrollbar */
+                width: 100%;
+                height: 100%;
             }
             #app {
                 background: black;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh; /* Full height viewport */
+                width: 100vw; /* Full width viewport */
+                overflow: hidden; /* Prevent scrollbar */
             }
         `);
 
-        // Inject JavaScript to align the container
         mainWindow.webContents.executeJavaScript(`
             const appContainer = document.getElementById('app');
             if (appContainer) {
