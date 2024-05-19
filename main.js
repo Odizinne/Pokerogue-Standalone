@@ -15,7 +15,25 @@ function createWindow() {
     mainWindow.loadURL('https://pokerogue.net/');
 
     mainWindow.webContents.on('did-finish-load', () => {
-        mainWindow.webContents.insertCSS('body, html { cursor: none; }');
+        mainWindow.webContents.insertCSS(`
+            body, html {
+                cursor: none;
+            }
+            #app {
+                background: black;
+            }
+        `);
+
+        // Inject JavaScript to align the container
+        mainWindow.webContents.executeJavaScript(`
+            const appContainer = document.getElementById('app');
+            if (appContainer) {
+                appContainer.style.display = 'flex';
+                appContainer.style.justifyContent = 'center';
+                appContainer.style.alignItems = 'center';
+            }
+        `);
+
         mainWindow.setMenuBarVisibility(false);
         setupMouseMoveHandler();
         setupRequestInterceptor();
@@ -58,10 +76,9 @@ function setupRequestInterceptor() {
         if (method === 'Network.responseReceived') {
             const { response } = params;
             if (response.url.includes('.mp4')) {
-                console.log(`MP4 file requested: ${response.url}`);
                 mainWindow.setFullScreen(true);
                 mainWindow.show();
-                webContents.debugger.detach(); // Detach debugger after intercepting the file
+                webContents.debugger.detach();
             }
         }
     });
