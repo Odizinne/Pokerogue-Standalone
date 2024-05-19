@@ -5,8 +5,7 @@ let mainWindow;
 function createWindow() {
     mainWindow = new BrowserWindow({
         width: 1280,
-        height: 749,
-        fullscreen: true,
+        height: 750,
         show: false,
         webPreferences: {
             nodeIntegration: true,
@@ -17,7 +16,6 @@ function createWindow() {
     mainWindow.webContents.on('did-finish-load', () => {
         mainWindow.webContents.insertCSS('body, html { cursor: none; }');
         mainWindow.setMenuBarVisibility(false);
-        mainWindow.setFullScreen(false);
         mainWindow.setFullScreen(true);
         mainWindow.show();
     });
