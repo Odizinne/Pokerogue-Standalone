@@ -1,4 +1,6 @@
 const { app, BrowserWindow } = require('electron');
+const fs = require('fs');
+const path = require('path');
 
 let mainWindow;
 
@@ -26,7 +28,6 @@ function createWindow() {
                 align-items: center;
             }
         `);
-
         setupMouseMoveHandler();
         mainWindow.show();
     });
@@ -37,22 +38,9 @@ function createWindow() {
 }
 
 function setupMouseMoveHandler() {
-    mainWindow.webContents.executeJavaScript(`
-        let cursorTimeout;
-        function startCursorTimer() {
-            cursorTimeout = setTimeout(() => {
-                document.body.style.cursor = 'none';
-            }, 3000);
-        }
-
-        document.addEventListener('mousemove', () => {
-            clearTimeout(cursorTimeout);
-            document.body.style.cursor = 'default';
-            startCursorTimer();
-        });
-
-        startCursorTimer();
-    `);
+    const hideMouseCursorPath = path.join(__dirname, 'hideMouseCursor.js');
+    const hideMouseCursor = fs.readFileSync(hideMouseCursorPath, 'utf8');
+    mainWindow.webContents.executeJavaScript(hideMouseCursor);
 }
 
 app.on('ready', createWindow);
