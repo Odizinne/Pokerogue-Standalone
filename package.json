@@ -6,6 +6,7 @@
   "author": "Ozidinne",
   "scripts": {
     "start": "electron .",
+    "start:ncs": "electron . --no-hide-cursor",
     "build:win-zip": "electron-builder --win --x64 --config.win.target=zip --publish=never",
     "build:win-nsis": "electron-builder --win --x64 --config.win.target=nsis --publish=never",
     "build:linux-zip": "electron-builder --linux --x64 --config.linux.target=zip --publish=never"
