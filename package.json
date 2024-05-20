@@ -1,6 +1,6 @@
 {
   "name": "Pokerogue",
-  "version": "1.0.0",
+  "version": "1.4.2",
   "description": "Simple Pokerogue electron app",
   "main": "main.js",
   "author": "Ozidinne",
