@@ -8,7 +8,7 @@ I made this with couch gaming / Steam Deck in mind.
 
 If you want a more featured app, please have a look at [Pokerogue-App](https://github.com/Admiral-Billy/Pokerogue-App) made by [Admiral-Billy](https://github.com/Admiral-Billy)
 
-## Download and installation
+## Download
 
 | Platform | Arch | Link |
 | --- | --- | --- |
@@ -18,7 +18,11 @@ If you want a more featured app, please have a look at [Pokerogue-App](https://g
 
 Changelog and all versions [here]([https://github.com/Odizinne/Pokerogue-Standalone/releases/latest](https://github.com/Odizinne/Pokerogue-Standalone/releases)).
 
-**Steam Deck with gamescope**: add `--no-sandbox` as launch argument.
+## Usage
+
+- `--no-fullscreen`: Disable fullscreen
+- `--no-hide-cursor`: Disable cursor hiding on idle
+- **Steam Deck with gamescope**: add `--no-sandbox` as launch argument.
 
 Toggle fullscreen with F11 as needed.
 
