@@ -1,8 +1,12 @@
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, nativeImage } = require('electron');
 const fs = require('fs');
 const path = require('path');
 
 let mainWindow;
+
+const cursorImagePath = path.join(__dirname, 'PR_cursor.png');
+const cursorImage = nativeImage.createFromPath(cursorImagePath);
+const cursorDataURL = cursorImage.toDataURL();
 
 function createWindow() {
     const noFullscreen = process.argv.includes('--no-fullscreen');
@@ -12,13 +16,13 @@ function createWindow() {
         width: 1280,
         height: 750,
         show: false,
-        fullscreen: !noFullscreen, // set fullscreen based on the argument
+        fullscreen: !noFullscreen,
         autoHideMenuBar: true,
         webPreferences: {
             nodeIntegration: true,
         }
     });
-
+    
     mainWindow.loadURL('https://pokerogue.net/');
     mainWindow.webContents.on('did-finish-load', () => {
         mainWindow.webContents.insertCSS(`
@@ -30,14 +34,13 @@ function createWindow() {
                 align-items: center;
             }
         `);
-        if (!noHideCursor) {
-            mainWindow.webContents.insertCSS(`
-            body, html {
-                cursor: none;
-            }
-        `);
+        if (noHideCursor) {
+            setCustomCursor();
+        }
+        else {
             setupMouseMoveHandler();
         }
+        
         mainWindow.show();
     });
 
@@ -46,10 +49,26 @@ function createWindow() {
     });
 }
 
+function setCustomCursor() {
+    mainWindow.webContents.executeJavaScript(`
+        document.body.style.cursor = 'url(${cursorDataURL}), auto';
+    `);
+}
+
 function setupMouseMoveHandler() {
-    const hideMouseCursorPath = path.join(__dirname, 'hideMouseCursor.js');
-    const hideMouseCursor = fs.readFileSync(hideMouseCursorPath, 'utf8');
-    mainWindow.webContents.executeJavaScript(hideMouseCursor);
+    mainWindow.webContents.executeJavaScript(`
+        let startCursorTimer = () => {
+            cursorTimeout = setTimeout(() => {
+                document.body.style.cursor = 'none';
+            }, 3000);
+        };
+        let cursorTimeout;
+        document.addEventListener('mousemove', () => {
+            clearTimeout(cursorTimeout);
+            document.body.style.cursor = 'url(${cursorDataURL}), auto';
+            startCursorTimer();
+        });
+    `);
 }
 
 app.on('ready', createWindow);
