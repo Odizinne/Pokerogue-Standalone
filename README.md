@@ -12,9 +12,9 @@ If you want a more featured app, please have a look at [Pokerogue-App](https://g
 
 | Platform | Arch | Link |
 | --- | --- | --- |
-| Windows Installer | x64 | [Download](https://github.com/Odizinne/Pokerogue-Standalone/releases/download/1.4.1/Pokerogue-Installer.exe)
-| Windows Portable | x64 | [Download](https://github.com/Odizinne/Pokerogue-Standalone/releases/download/1.4.1/Pokerogue-Win.zip)
-| Linux Portable | x64 | [Download](https://github.com/Odizinne/Pokerogue-Standalone/releases/download/1.4.1/Pokerogue-Linux.zip)
+| Windows Installer | x64 | [Download](https://github.com/Odizinne/Pokerogue-Standalone/releases/download/1.5.0/Pokerogue-Installer.exe)
+| Windows Portable | x64 | [Download](https://github.com/Odizinne/Pokerogue-Standalone/releases/download/1.5.0/Pokerogue-Win.zip)
+| Linux Portable | x64 | [Download](https://github.com/Odizinne/Pokerogue-Standalone/releases/download/1.5.0/Pokerogue-Linux.zip)
 
 Changelog and all versions [here]([https://github.com/Odizinne/Pokerogue-Standalone/releases/latest](https://github.com/Odizinne/Pokerogue-Standalone/releases)).
 
