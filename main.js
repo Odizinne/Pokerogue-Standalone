@@ -1,17 +1,13 @@
-const { app, BrowserWindow, nativeImage } = require('electron');
-const fs = require('fs');
+const { app, BrowserWindow } = require('electron');
 const path = require('path');
+const fs = require('fs');
 
 let mainWindow;
-
-const cursorImagePath = path.join(__dirname, 'PR_cursor.png');
-const cursorImage = nativeImage.createFromPath(cursorImagePath);
-const cursorDataURL = cursorImage.toDataURL();
 
 function createWindow() {
     const noFullscreen = process.argv.includes('--no-fullscreen');
     const noHideCursor = process.argv.includes('--no-hide-cursor');
-    
+
     mainWindow = new BrowserWindow({
         width: 1280,
         height: 750,
@@ -20,55 +16,28 @@ function createWindow() {
         autoHideMenuBar: true,
         webPreferences: {
             nodeIntegration: true,
+            preload: path.join(__dirname, 'preload.js')
         }
     });
-    
+
     mainWindow.loadURL('https://pokerogue.net/');
     mainWindow.webContents.on('did-finish-load', () => {
-        mainWindow.webContents.insertCSS(`
-            body, html {
-                overflow: hidden;
-            }
-            #app {
-                background: black;
-                align-items: center;
-            }
-        `);
-        if (noHideCursor) {
-            setCustomCursor();
-        }
-        else {
-            setupMouseMoveHandler();
-        }
+        const cssPath = path.join(__dirname, 'styles.css');
+        const css = fs.readFileSync(cssPath, 'utf-8');
+        mainWindow.webContents.insertCSS(css);
         
+        if (noHideCursor) {
+            mainWindow.webContents.send('set-custom-cursor');
+        } else {
+            mainWindow.webContents.send('setup-mouse-move-handler');
+        }
+
         mainWindow.show();
     });
 
     mainWindow.on('closed', () => {
         mainWindow = null;
     });
-}
-
-function setCustomCursor() {
-    mainWindow.webContents.executeJavaScript(`
-        document.body.style.cursor = 'url(${cursorDataURL}), auto';
-    `);
-}
-
-function setupMouseMoveHandler() {
-    mainWindow.webContents.executeJavaScript(`
-        let startCursorTimer = () => {
-            cursorTimeout = setTimeout(() => {
-                document.body.style.cursor = 'none';
-            }, 3000);
-        };
-        let cursorTimeout;
-        document.addEventListener('mousemove', () => {
-            clearTimeout(cursorTimeout);
-            document.body.style.cursor = 'url(${cursorDataURL}), auto';
-            startCursorTimer();
-        });
-    `);
 }
 
 app.on('ready', createWindow);
