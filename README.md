@@ -10,13 +10,17 @@ If you want a more featured app, please have a look at [Pokerogue-App](https://g
 
 ## Download and installation
 
-Get latest version [here](https://github.com/Odizinne/Pokerogue-Standalone/releases/latest).
+| Platform | Arch | Link |
+| --- | --- | --- |
+| Windows Installer | x64 | [Download](https://github.com/Odizinne/Pokerogue-Standalone/releases/download/1.4.1/Pokerogue-Installer.exe)
+| Windows Portable | x64 | [Download](https://github.com/Odizinne/Pokerogue-Standalone/releases/download/1.4.1/Pokerogue-Win.zip)
+| Linux Portable | x64 | [Download](https://github.com/Odizinne/Pokerogue-Standalone/releases/download/1.4.1/Pokerogue-Linux.zip)
 
-You can use an almost automated installer for windows, or extract the zip and run `Pokerogue.exe`.
+Changelog and all versions [here]([https://github.com/Odizinne/Pokerogue-Standalone/releases/latest](https://github.com/Odizinne/Pokerogue-Standalone/releases)).
 
 **Steam Deck with gamescope**: add `--no-sandbox` as launch argument.
 
-Toggle fullscreen with F11.
+Toggle fullscreen with F11 as needed.
 
 ## Build
 
