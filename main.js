@@ -5,11 +5,14 @@ const path = require('path');
 let mainWindow;
 
 function createWindow() {
+    const noFullscreen = process.argv.includes('--no-fullscreen');
+    const noHideCursor = process.argv.includes('--no-hide-cursor');
+    
     mainWindow = new BrowserWindow({
         width: 1280,
         height: 750,
         show: false,
-        fullscreen: true,
+        fullscreen: !noFullscreen, // set fullscreen based on the argument
         autoHideMenuBar: true,
         webPreferences: {
             nodeIntegration: true,
@@ -20,7 +23,6 @@ function createWindow() {
     mainWindow.webContents.on('did-finish-load', () => {
         mainWindow.webContents.insertCSS(`
             body, html {
-                cursor: none;
                 overflow: hidden;
             }
             #app {
@@ -28,7 +30,14 @@ function createWindow() {
                 align-items: center;
             }
         `);
-        setupMouseMoveHandler();
+        if (!noHideCursor) {
+            mainWindow.webContents.insertCSS(`
+            body, html {
+                cursor: none;
+            }
+        `);
+            setupMouseMoveHandler();
+        }
         mainWindow.show();
     });
 
