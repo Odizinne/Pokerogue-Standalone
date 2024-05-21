@@ -5,10 +5,6 @@ const cursorImagePath = path.join(__dirname, 'PR_cursor.png');
 const cursorImage = nativeImage.createFromPath(cursorImagePath);
 const cursorDataURL = cursorImage.toDataURL();
 
-function setCustomCursor() {
-    document.body.style.cursor = `url(${cursorDataURL}), auto`;
-}
-
 function setupMouseMoveHandler() {
     let startCursorTimer = () => {
         cursorTimeout = setTimeout(() => {
@@ -25,6 +21,5 @@ function setupMouseMoveHandler() {
 }
 
 module.exports = {
-    setCustomCursor,
     setupMouseMoveHandler,
 };
