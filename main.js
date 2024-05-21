@@ -8,6 +8,7 @@ let mainWindow;
 function createWindow() {
     const noFullscreen = process.argv.includes('--no-fullscreen');
     const noHideCursor = process.argv.includes('--no-hide-cursor');
+    const defaultCursor = process.argv.includes('--default-cursor');
 
     mainWindow = new BrowserWindow({
         width: 1280,
@@ -25,11 +26,9 @@ function createWindow() {
         const cssPath = path.join(__dirname, 'styles.css');
         const css = fs.readFileSync(cssPath, 'utf-8');
         mainWindow.webContents.insertCSS(css);
-        if (noHideCursor) {
-            mainWindow.webContents.send('set-custom-cursor');
-        } else {
+        if (!defaultCursor) {
             mainWindow.webContents.send('setup-mouse-move-handler');
-        }
+        } 
         if (!noFullscreen) {
             setupRequestInterceptor(mainWindow);
         } else {
@@ -39,6 +38,24 @@ function createWindow() {
 
     mainWindow.on('closed', () => {
         mainWindow = null;
+    });
+
+    mainWindow.on('focus', () => {
+        mainWindow.webContents.on('before-input-event', (event, input) => {
+            if (input.type === 'keyDown') {
+                if (input.key === 'F11') {
+                    event.preventDefault();
+                    mainWindow.setFullScreen(!mainWindow.isFullScreen());
+                } else if (input.key === 'F5') {
+                    event.preventDefault();
+                    mainWindow.reload();
+                }
+            }
+        });
+    });
+
+    mainWindow.on('blur', () => {
+        mainWindow.webContents.removeAllListeners('before-input-event');
     });
 }
 
