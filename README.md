@@ -9,25 +9,29 @@ I made this app with couch gaming / Steam Deck in mind.
 
 If you want a more featured app, please have a look at [Pokerogue-App](https://github.com/Admiral-Billy/Pokerogue-App) made by [Admiral-Billy](https://github.com/Admiral-Billy)
 
-## Download
+## Download and installation
 
 | Platform | Arch | Link |
 | --- | --- | --- |
-| Windows Installer | x64 | [Download](https://github.com/Odizinne/Pokerogue-Standalone/releases/download/1.6.0/Pokerogue-Installer.exe)
-| Windows Portable | x64 | [Download](https://github.com/Odizinne/Pokerogue-Standalone/releases/download/1.6.0/Pokerogue-Win.zip)
-| Linux Portable | x64 | [Download](https://github.com/Odizinne/Pokerogue-Standalone/releases/download/1.6.0/Pokerogue-Linux.zip)
+| Windows Installer | x64 | [Download](https://github.com/Odizinne/Pokerogue-Standalone/releases/download/1.6.1/Pokerogue-Installer.exe)
+| Windows Portable | x64 | [Download](https://github.com/Odizinne/Pokerogue-Standalone/releases/download/1.6.1/Pokerogue-Win.zip)
+| Linux Portable | x64 | [Download](https://github.com/Odizinne/Pokerogue-Standalone/releases/download/1.6.1/Pokerogue-Linux.zip)
+
+Use the prebuilt installer or manually extract the zip file.
+
+**Steam Deck with gamescope**: 
+- Add `Pokerogue` as a non steam game.
+- Add `--no-sandbox` as launch argument.
+- (Optional) Select 1280x720 in game properties to center the window and toggle for any internal/external screen.
 
 Changelog and all versions [here]([https://github.com/Odizinne/Pokerogue-Standalone/releases/latest](https://github.com/Odizinne/Pokerogue-Standalone/releases)).
 
 ## Usage
 
 - `--no-fullscreen`: Disable fullscreen
-- `--no-hide-cursor`: Disable cursor hiding on idle
-
-**Steam Deck with gamescope**: 
-- Add `Pokerogue` as a non steam game.
-- Add `--no-sandbox` as launch argument.
-- (Optional) Select 1280x720 in game properties to center the window and toggle for any internal/external screen.
+- `--default-cursor`: Use system cursor instead of custom one and disable hiding on idle
+- F5: Restart
+- F11: Toggle fullscreen
 
 ## Build
 
