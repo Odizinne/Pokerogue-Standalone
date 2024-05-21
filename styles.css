@@ -1,7 +1,3 @@
-body, html {
-    overflow: hidden;
-}
 #app {
     background: black;
-    align-items: center;
 }
