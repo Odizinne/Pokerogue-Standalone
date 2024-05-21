@@ -22,9 +22,11 @@ Changelog and all versions [here]([https://github.com/Odizinne/Pokerogue-Standal
 
 - `--no-fullscreen`: Disable fullscreen
 - `--no-hide-cursor`: Disable cursor hiding on idle
-- **Steam Deck with gamescope**: add `--no-sandbox` as launch argument.
 
-Toggle fullscreen with F11 as needed.
+- **Steam Deck with gamescope**: 
+- Add `Pokerogue` as a non steam game.
+- Add `--no-sandbox` as launch argument.
+- (Optional) Select 1280x720 in game properties to center the window.
 
 ## Build
 
