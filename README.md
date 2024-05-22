@@ -17,7 +17,14 @@ If you want a more featured app, please have a look at [Pokerogue-App](https://g
 | Windows Portable | x64 | [Download](https://github.com/Odizinne/Pokerogue-Standalone/releases/download/1.6.1/Pokerogue-Win.zip)
 | Linux Portable | x64 | [Download](https://github.com/Odizinne/Pokerogue-Standalone/releases/download/1.6.1/Pokerogue-Linux.zip)
 
+### Windows
 Use the prebuilt installer or manually extract the zip file.
+
+### Linux
+- Download and extract the zip file.
+- Open a terminal in the extracted folder.
+- Allow `install.sh` to be executed as a program: `chmod +x ./install.sh`
+- Run the installer: `./install.sh`
 
 **Steam Deck with gamescope**: 
 - Add `Pokerogue` as a non steam game.

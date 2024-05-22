@@ -1,6 +1,6 @@
 {
   "name": "Pokerogue",
-  "version": "1.5.0",
+  "version": "1.7.0",
   "description": "Simple Pokerogue electron app",
   "main": "main.js",
   "author": "Ozidinne",
@@ -20,10 +20,10 @@
     "files": [
       "**/*",
       "!node_modules/**",
+      "!icons/**",
       "!README.md",
       "!.gitignore",
-      "!**/.github/**",
-      "!icons/**"
+      "!**/.github/**"
     ],
     "win": {
       "target": [
@@ -51,7 +51,21 @@
         "dir"
       ],
       "icon": "icons/PR.png",
-      "artifactName": "Pokerogue-Linux.zip"
+      "artifactName": "Pokerogue-Linux.zip",
+      "extraFiles": [
+        {
+          "from": "icons/PR.png",
+          "to": "PR.png"
+        },
+        {
+          "from": "linux_installer/install.sh",
+          "to": "install.sh"
+        },
+        {
+          "from": "linux_installer/uninstall.sh",
+          "to": "uninstall.sh"
+        }
+      ]
     }
   }
 }
