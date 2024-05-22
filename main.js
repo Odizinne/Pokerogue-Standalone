@@ -5,14 +5,13 @@ const setupRequestInterceptor = require('./interceptor');
 
 let mainWindow;
 
-function createWindow() {
+async function createWindow() {
     const noFullscreen = process.argv.includes('--no-fullscreen');
-    const noHideCursor = process.argv.includes('--no-hide-cursor');
     const defaultCursor = process.argv.includes('--default-cursor');
 
     mainWindow = new BrowserWindow({
-        width: 1280,
-        height: 750,
+        width: 800,
+        height: 600,
         show: false,
         webPreferences: {
             nodeIntegration: true,
@@ -22,18 +21,19 @@ function createWindow() {
 
     mainWindow.setMenu(null);
     mainWindow.loadURL('https://pokerogue.net/');
-    mainWindow.webContents.on('did-finish-load', () => {
+    mainWindow.webContents.on('did-finish-load', async () => {
         const cssPath = path.join(__dirname, 'styles.css');
         const css = fs.readFileSync(cssPath, 'utf-8');
         mainWindow.webContents.insertCSS(css);
         if (!defaultCursor) {
             mainWindow.webContents.send('setup-mouse-move-handler');
-        } 
-        if (!noFullscreen) {
-            setupRequestInterceptor(mainWindow);
-        } else {
-            mainWindow.show();
         }
+
+        await setupRequestInterceptor(mainWindow);
+        mainWindow.setSize(1280, 750)
+        mainWindow.center()
+        mainWindow.setFullScreen(!noFullscreen)
+        mainWindow.show()
     });
 
     mainWindow.on('closed', () => {
