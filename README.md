@@ -1,6 +1,6 @@
 # Pokerogue-Standalone
 
-**This is a simple electron app that runs Pokerogue on fullscreen by default.**
+**This is a simple electron app that runs [Pokérogue](https://pokerogue.net/) on fullscreen by default.**
 
 ![image](https://github.com/Odizinne/Pokerogue-Standalone/assets/102679854/b3858bbd-aac1-4b2d-af00-44eebb035311)
 
