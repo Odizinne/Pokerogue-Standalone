@@ -5,19 +5,26 @@ const cursorImagePath = path.join(__dirname, 'PR_cursor.png');
 const cursorImage = nativeImage.createFromPath(cursorImagePath);
 const cursorDataURL = cursorImage.toDataURL();
 
-function setupMouseMoveHandler() {
-    let startCursorTimer = () => {
+let cursorTimeout;
+
+function setupMouseMoveHandler(defaultCursor) {
+    const cursor = defaultCursor ? 'default' : `url(${cursorDataURL}), auto`;
+    document.body.style.cursor = cursor;
+
+    const startCursorTimer = () => {
         cursorTimeout = setTimeout(() => {
             document.body.style.cursor = 'none';
         }, 3000);
     };
 
-    let cursorTimeout;
-    document.addEventListener('mousemove', () => {
+    const resetCursorTimer = () => {
         clearTimeout(cursorTimeout);
-        document.body.style.cursor = `url(${cursorDataURL}), auto`;
+        document.body.style.cursor = cursor;
         startCursorTimer();
-    });
+    };
+
+    document.addEventListener('mousemove', resetCursorTimer);
+    document.addEventListener('mouseenter', resetCursorTimer);
 }
 
 module.exports = {
