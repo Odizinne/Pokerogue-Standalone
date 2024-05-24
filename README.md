@@ -37,6 +37,7 @@ Changelog and all versions [here]([https://github.com/Odizinne/Pokerogue-Standal
 
 - `--no-fullscreen`: Disable fullscreen
 - `--default-cursor`: Use system cursor instead of custom one and disable hiding on idle
+- `--disable-css`: Use default background color instead of black
 - F5: Restart
 - F11: Toggle fullscreen
 
