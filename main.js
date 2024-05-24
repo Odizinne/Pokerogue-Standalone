@@ -16,7 +16,8 @@ async function createWindow() {
         show: false,
         webPreferences: {
             nodeIntegration: true,
-            preload: path.join(__dirname, 'preload.js')
+            preload: path.join(__dirname, 'preload.js'),
+            backgroundThrottling: false
         }
     });
 
