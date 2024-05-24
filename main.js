@@ -8,6 +8,7 @@ let mainWindow;
 async function createWindow() {
     const noFullscreen = process.argv.includes('--no-fullscreen');
     const defaultCursor = process.argv.includes('--default-cursor');
+    const disableCSS = process.argv.includes('--disable-css');
 
     mainWindow = new BrowserWindow({
         width: 800,
@@ -24,7 +25,11 @@ async function createWindow() {
     mainWindow.webContents.on('did-finish-load', async () => {
         const cssPath = path.join(__dirname, 'styles.css');
         const css = fs.readFileSync(cssPath, 'utf-8');
-        mainWindow.webContents.insertCSS(css);
+
+        if (!disableCSS) {
+            mainWindow.webContents.insertCSS(css);
+        }
+        
         if (!defaultCursor) {
             mainWindow.webContents.send('setup-mouse-move-handler');
         }
