@@ -30,16 +30,13 @@ async function createWindow() {
         if (!disableCSS) {
             mainWindow.webContents.insertCSS(css);
         }
-        
-        if (!defaultCursor) {
-            mainWindow.webContents.send('setup-mouse-move-handler');
-        }
 
         await setupRequestInterceptor(mainWindow);
-        mainWindow.setSize(1280, 750)
-        mainWindow.center()
-        mainWindow.setFullScreen(!noFullscreen)
-        mainWindow.show()
+        mainWindow.webContents.send('setup-mouse-move-handler', defaultCursor);
+        mainWindow.setSize(1280, 750);
+        mainWindow.center();
+        mainWindow.setFullScreen(!noFullscreen);
+        mainWindow.show();
     });
 
     mainWindow.on('closed', () => {
