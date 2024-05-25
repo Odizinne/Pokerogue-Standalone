@@ -1,9 +1,12 @@
 {
-  "name": "Pokerogue",
-  "version": "1.7.2",
+  "name": "pokerogue",
+  "version": "1.8.0",
   "description": "Simple Pokerogue electron app",
   "main": "main.js",
-  "author": "Ozidinne",
+  "author": {
+    "name": "Ozidinne",
+    "email": "flora.aubry1994@gmail.com"
+  },
   "scripts": {
     "start": "electron .",
     "start:defaultcursor": "electron . --default-cursor",
@@ -11,7 +14,9 @@
     "start:disablecss": "electron . --disable-css",
     "build:win-zip": "electron-builder --win --x64 --config.win.target=zip --publish=never",
     "build:win-nsis": "electron-builder --win --x64 --config.win.target=nsis --publish=never",
-    "build:linux-zip": "electron-builder --linux --x64 --config.linux.target=zip --publish=never"
+    "build:linux-zip": "electron-builder --linux --x64 --config.linux.target=zip --publish=never",
+    "build:linux-rpm": "electron-builder --linux --x64 --config.linux.target=rpm --publish=never",
+    "build:linux-deb": "electron-builder --linux --x64 --config.linux.target=deb --publish=never"
   },
   "devDependencies": {
     "electron": "^29.4.0",
@@ -49,10 +54,19 @@
     "linux": {
       "target": [
         "zip",
-        "dir"
+        "deb",
+        "rpm"
       ],
       "icon": "icons/PR.png",
-      "artifactName": "Pokerogue-Linux.zip",
+      "executableName": "pokerogue",
+      "desktop": {
+        "Name": "Pokerogue",
+        "Comment": "Simple Pokerogue electron app",
+        "Icon": "/usr/share/icons/hicolor/0x0/apps/pokerogue.png",
+        "Terminal": false,
+        "Type": "Application"
+      },
+      "category": "Game",
       "extraFiles": [
         {
           "from": "icons/PR.png",
