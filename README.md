@@ -2,10 +2,15 @@
 
 **This is a simple electron app that runs [Pokérogue](https://pokerogue.net/) on fullscreen by default.**
 
-![image](https://github.com/Odizinne/Pokerogue-Standalone/assets/102679854/b3858bbd-aac1-4b2d-af00-44eebb035311)
-
-
 I made this app with couch gaming / Steam Deck in mind.
+
+## Features
+
+Every feature listed here is enabled by default but can be disabled:
+- Custom Pokérogue themed mouse cursor
+- Hide mouse cursor on idle
+- Changed background color to pitch black
+- Fullscreen by default
 
 If you want a more featured app, please have a look at [Pokerogue-App](https://github.com/Admiral-Billy/Pokerogue-App) made by [Admiral-Billy](https://github.com/Admiral-Billy)
 
