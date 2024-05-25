@@ -1,4 +1,4 @@
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, globalShortcut } = require('electron');
 const path = require('path');
 const fs = require('fs');
 const setupRequestInterceptor = require('./interceptor');
@@ -44,6 +44,10 @@ async function createWindow() {
     });
 
     mainWindow.on('focus', () => {
+        globalShortcut.register('CommandOrControl+Q', () => {
+            app.quit();
+        });
+
         mainWindow.webContents.on('before-input-event', (event, input) => {
             if (input.type === 'keyDown') {
                 if (input.key === 'F11') {
@@ -58,11 +62,14 @@ async function createWindow() {
     });
 
     mainWindow.on('blur', () => {
+        globalShortcut.unregisterAll();
         mainWindow.webContents.removeAllListeners('before-input-event');
     });
 }
 
-app.on('ready', createWindow);
+app.on('ready', () => {
+    createWindow();
+});
 
 app.on('window-all-closed', () => {
     if (process.platform !== 'darwin') {
