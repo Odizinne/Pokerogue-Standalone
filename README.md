@@ -13,14 +13,17 @@ If you want a more featured app, please have a look at [Pokerogue-App](https://g
 
 | Platform | Arch | Link |
 | --- | --- | --- |
-| Windows Installer | x64 | [Download](https://github.com/Odizinne/Pokerogue-Standalone/releases/download/1.7.0/Pokerogue-Installer.exe)
-| Windows Portable | x64 | [Download](https://github.com/Odizinne/Pokerogue-Standalone/releases/download/1.7.0/Pokerogue-Win.zip)
-| Linux Portable | x64 | [Download](https://github.com/Odizinne/Pokerogue-Standalone/releases/download/1.7.0/Pokerogue-Linux.zip)
+| Windows Installer | x64 | [Download](https://github.com/Odizinne/Pokerogue-Standalone/releases/download/1.8.0/Pokerogue-Installer.exe) |
+| Windows Portable | x64 | [Download](https://github.com/Odizinne/Pokerogue-Standalone/releases/download/1.8.0/Pokerogue-Win.zip) |
+| Linux DEB | x64 | [Download](https://github.com/Odizinne/Pokerogue-Standalone/releases/download/1.8.0/Pokerogue.deb) |
+| Linux RPM | x64 | [Download](https://github.com/Odizinne/Pokerogue-Standalone/releases/download/1.8.0/Pokerogue.rpm) |
+| Linux Portable | x64 | [Download](https://github.com/Odizinne/Pokerogue-Standalone/releases/download/1.8.0/Pokerogue-Linux.zip) |
 
 ### Windows
 Use the prebuilt installer or manually extract the zip file.
 
 ### Linux
+Use the provided DEB / RPM installers or:
 - Download and extract the zip file.
 - Open a terminal in the extracted folder.
 - Allow `install.sh` to be executed as a program: `chmod +x ./install.sh`
