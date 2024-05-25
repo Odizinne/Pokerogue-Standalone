@@ -2,11 +2,11 @@ name: Build and Release
 
 on:
   push:
-    branches:
-      - main
+#    branches:
+#      - main
 
 jobs:
-  build:
+  build-linux:
     runs-on: ubuntu-latest
     
     steps:
@@ -28,11 +28,28 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: Pokerogue-Linux
-        path: ./dist/Pokerogue-Linux.zip
+        path: ./dist/*.zip
 
+    - name: Build for Linux (DEB)
+      run: npm run build:linux-deb
+
+    - name: Upload Linux DEB Artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: Pokerogue-Linux-DEB
+        path: ./dist/*.deb
+
+    - name: Build for Linux (RPM)
+      run: npm run build:linux-rpm
+
+    - name: Upload Linux RPM Artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: Pokerogue-Linux-RPM
+        path: ./dist/*.rpm
+  
   build-windows:
     runs-on: windows-latest
-    needs: build
 
     steps:
     - name: Checkout code
