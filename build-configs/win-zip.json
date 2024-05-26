@@ -1,0 +1,15 @@
+{
+    "win": {
+    "artifactName": "Pokerogue-Win.zip",
+      "target": [
+        {
+          "target": "zip",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "icons/PR.ico"
+    }
+  }
+  
