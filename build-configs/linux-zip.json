@@ -1,0 +1,38 @@
+{
+    "linux": {
+    "artifactName": "Pokerogue-Linux.zip",
+      "target": [
+        {
+          "target": "zip",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "category": "Game",
+      "icon": "icons/PR.png",
+      "executableName": "pokerogue",
+      "desktop": {
+        "Name": "Pokerogue",
+        "Comment": "Simple Pokerogue electron app",
+        "Icon": "/usr/share/icons/hicolor/0x0/apps/pokerogue.png",
+        "Terminal": false,
+        "Type": "Application"
+      }
+    },
+    "extraResources": [
+      {
+        "from": "icons/PR.png",
+        "to": "PR.png"
+      },
+      {
+        "from": "linux_installer/install.sh",
+        "to": "install.sh"
+      },
+      {
+        "from": "linux_installer/uninstall.sh",
+        "to": "uninstall.sh"
+      }
+    ]
+  }
+  
