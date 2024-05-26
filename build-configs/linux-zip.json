@@ -20,7 +20,7 @@
         "Type": "Application"
       }
     },
-    "extraResources": [
+    "extraFiles": [
       {
         "from": "icons/PR.png",
         "to": "PR.png"
