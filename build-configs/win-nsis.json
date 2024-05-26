@@ -1,0 +1,26 @@
+{
+    "win": {
+    "artifactName": "Pokerogue-Installer.exe",
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "icons/PR.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "installerIcon": "icons/PR.ico",
+      "uninstallerIcon": "icons/PR.ico",
+      "installerHeaderIcon": "icons/PR.ico",
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Pokerogue",
+      "runAfterFinish": false
+    }
+  }
+  

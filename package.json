@@ -12,11 +12,11 @@
     "start:defaultcursor": "electron . --default-cursor",
     "start:nofullscreen": "electron . --no-fullscreen",
     "start:disablecss": "electron . --disable-css",
-    "build:win-zip": "electron-builder --win --x64 --config.win.target=zip --publish=never",
-    "build:win-nsis": "electron-builder --win --x64 --config.win.target=nsis --publish=never",
-    "build:linux-zip": "electron-builder --linux --x64 --config.linux.target=zip --publish=never",
-    "build:linux-rpm": "electron-builder --linux --x64 --config.linux.target=rpm --publish=never",
-    "build:linux-deb": "electron-builder --linux --x64 --config.linux.target=deb --publish=never"
+    "build:win-nsis": "electron-builder --config build-configs/win-nsis.json --publish never",
+    "build:win-zip": "electron-builder --config build-configs/win-zip.json --publish never",
+    "build:linux-zip": "electron-builder --config build-configs/linux-zip.json --publish never",
+    "build:linux-deb": "electron-builder --config build-configs/linux-deb.json --publish never",
+    "build:linux-rpm": "electron-builder --config build-configs/linux-rpm.json --publish never"
   },
   "devDependencies": {
     "electron": "^29.4.0",
@@ -30,57 +30,6 @@
       "!README.md",
       "!.gitignore",
       "!**/.github/**"
-    ],
-    "win": {
-      "target": [
-        "zip",
-        "nsis"
-      ],
-      "icon": "icons/PR.ico",
-      "artifactName": "Pokerogue-Win.zip"
-    },
-    "nsis": {
-      "oneClick": false,
-      "allowToChangeInstallationDirectory": true,
-      "installerIcon": "icons/PR.ico",
-      "uninstallerIcon": "icons/PR.ico",
-      "installerHeaderIcon": "icons/PR.ico",
-      "createDesktopShortcut": true,
-      "createStartMenuShortcut": true,
-      "artifactName": "Pokerogue-Installer.exe",
-      "shortcutName": "Pokerogue",
-      "runAfterFinish": false
-    },
-    "linux": {
-      "target": [
-        "zip",
-        "deb",
-        "rpm"
-      ],
-      "icon": "icons/PR.png",
-      "executableName": "pokerogue",
-      "desktop": {
-        "Name": "Pokerogue",
-        "Comment": "Simple Pokerogue electron app",
-        "Icon": "/usr/share/icons/hicolor/0x0/apps/pokerogue.png",
-        "Terminal": false,
-        "Type": "Application"
-      },
-      "category": "Game",
-      "extraFiles": [
-        {
-          "from": "icons/PR.png",
-          "to": "PR.png"
-        },
-        {
-          "from": "linux_installer/install.sh",
-          "to": "install.sh"
-        },
-        {
-          "from": "linux_installer/uninstall.sh",
-          "to": "uninstall.sh"
-        }
-      ]
-    }
+    ]
   }
 }
