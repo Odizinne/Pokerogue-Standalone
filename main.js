@@ -9,11 +9,12 @@ async function createWindow() {
     const noFullscreen = process.argv.includes('--no-fullscreen');
     const defaultCursor = process.argv.includes('--default-cursor');
     const disableCSS = process.argv.includes('--disable-css');
+    const isLinux = process.platform === 'linux';
 
     mainWindow = new BrowserWindow({
         width: 800,
         height: 600,
-        show: false,
+        show: isLinux,
         webPreferences: {
             nodeIntegration: true,
             preload: path.join(__dirname, 'preload.js'),
