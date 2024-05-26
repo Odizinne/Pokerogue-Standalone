@@ -1,0 +1,24 @@
+{
+    "linux": {
+    "artifactName": "Pokerogue.rpm",
+      "target": [
+        {
+          "target": "rpm",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "category": "Game",
+      "icon": "icons/PR.png",
+      "executableName": "pokerogue",
+      "desktop": {
+        "Name": "Pokerogue",
+        "Comment": "Simple Pokerogue electron app",
+        "Icon": "/usr/share/icons/hicolor/0x0/apps/pokerogue.png",
+        "Terminal": false,
+        "Type": "Application"
+      }
+    }
+  }
+  
