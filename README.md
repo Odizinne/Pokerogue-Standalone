@@ -7,7 +7,8 @@ I made this app with couch gaming / Steam Deck in mind.
 ## Features
 
 Every feature listed here is enabled by default but can be disabled:
-- Custom Pokérogue themed mouse cursor
+- Custom Pokérogue themed mouse cursor <img src="https://raw.githubusercontent.com/Odizinne/Pokerogue-Standalone/main/PR_cursor.png" alt="PR cursor" width="32" height="32">
+
 - Hide mouse cursor on idle
 - Changed background color to pitch black
 - Fullscreen by default
@@ -18,27 +19,35 @@ If you want a more featured app, please have a look at [Pokerogue-App](https://g
 
 | Platform | Arch | Link |
 | --- | --- | --- |
-| Windows Installer | x64 | [Download](https://github.com/Odizinne/Pokerogue-Standalone/releases/download/1.8.1/Pokerogue-Installer.exe) |
-| Windows Portable | x64 | [Download](https://github.com/Odizinne/Pokerogue-Standalone/releases/download/1.8.1/Pokerogue-Win.zip) |
-| Linux DEB | x64 | [Download](https://github.com/Odizinne/Pokerogue-Standalone/releases/download/1.8.1/Pokerogue.deb) |
-| Linux RPM | x64 | [Download](https://github.com/Odizinne/Pokerogue-Standalone/releases/download/1.8.1/Pokerogue.rpm) |
-| Linux Portable | x64 | [Download](https://github.com/Odizinne/Pokerogue-Standalone/releases/download/1.8.1/Pokerogue-Linux.zip) |
-| SteamDeck | x64 | [Download](https://raw.githubusercontent.com/Odizinne/Pokerogue-Standalone/main/SteamDeck/pokerogue-installer.desktop) |
+| Windows Installer | x64 | [Download](https://github.com/Odizinne/Pokerogue-Standalone/releases/download/1.8.2/Pokerogue-Installer.exe) |
+| Windows Portable | x64 | [Download](https://github.com/Odizinne/Pokerogue-Standalone/releases/download/1.8.2/Pokerogue-Win.zip) |
+| Linux DEB | x64 | [Download](https://github.com/Odizinne/Pokerogue-Standalone/releases/download/1.8.2/Pokerogue.deb) |
+| Linux RPM | x64 | [Download](https://github.com/Odizinne/Pokerogue-Standalone/releases/download/1.8.2/Pokerogue.rpm) |
+| Linux Portable | x64 | [Download](https://github.com/Odizinne/Pokerogue-Standalone/releases/download/1.8.2/Pokerogue-Linux.zip) |
+| SteamDeck (right click, Save link as...) | x64 | [Download](https://raw.githubusercontent.com/Odizinne/Pokerogue-Standalone/main/SteamDeck/pokerogue-installer.desktop) |
 
 ### Windows
 Use the prebuilt installer or manually extract the zip file.
 
 ### Linux
+
+#### **Steam Deck**: 
+- Downlaod the desktop file.
+- Place the .desktop file on your desktop (ff using firefox, rename this file to remove the `.downlaod` extension).
+- Run the installer by clicking on the desktop file.
+
+Getting it to work in gamemode:
+- Add `Pokerogue` as a non steam game.
+- Add `--no-sandbox` as launch argument.
+- (Optional) Select 1280x720 in game properties to center the window and toggle for any internal/external screen.
+
+#### **Others**:
+
 Use the provided DEB / RPM installers or:
 - Download and extract the zip file.
 - Open a terminal in the extracted folder.
 - Allow `install.sh` to be executed as a program: `chmod +x ./install.sh`
 - Run the installer: `./install.sh`
-
-**Steam Deck with gamescope**: 
-- Add `Pokerogue` as a non steam game.
-- Add `--no-sandbox` as launch argument.
-- (Optional) Select 1280x720 in game properties to center the window and toggle for any internal/external screen.
 
 Changelog and all versions [here](https://github.com/Odizinne/Pokerogue-Standalone/releases).
 
