@@ -26,31 +26,30 @@ fi
 if [ "$CHOICE" == "Install/Update Pokerogue" ]; then
     perform_installation() {
         echo "Downloading the latest release of Pokerogue..."
-        if curl -# -L -o "$TEMP_DIR/Pokerogue-Linux.zip" $(curl -s https://api.github.com/repos/Odizinne/Pokerogue-Standalone/releases/latest | grep "browser_download_url.*Pokerogue-Linux.zip" | cut -d '"' -f 4); then
-            echo "Download completed successfully."
-        else
+        if ! curl -# -L -o "$TEMP_DIR/Pokerogue-Linux.zip" $(curl -s https://api.github.com/repos/Odizinne/Pokerogue-Standalone/releases/latest | grep "browser_download_url.*Pokerogue-Linux.zip" | cut -d '"' -f 4); then
             zenity --error --title="Error" --text="Failed to download the latest release. Please check your internet connection and try again." --width=300 --height=50
             exit 1
         fi
-
+    
         echo "Extracting Pokerogue-Linux.zip..."
         unzip -q "$TEMP_DIR/Pokerogue-Linux.zip" -d "$TEMP_DIR"
-
+    
         EXTRACTED_DIR=$(find "$TEMP_DIR" -maxdepth 1 -type d -not -name '.*' -not -name 'Pokerogue-Linux' -print -quit)
-
-        cd "$EXTRACTED_DIR"
-
+    
+        cd "$EXTRACTED_DIR" || exit 1
+    
         echo "Making the install.sh script executable..."
         chmod +x install.sh
-
+    
         echo "Running the install.sh script..."
-        ./install.sh
+        ./install.sh || exit 1
     }
-
+    
     (
         perform_installation
         echo "Installation complete."
-    ) | zenity --progress --title="Installing Pokerogue" --text="Downloading, extracting, and installing..." --pulsate --auto-close --height=50
+    ) | zenity --progress --title="Installing Pokerogue" --text="Downloading, extracting, and installing..." --pulsate --auto-close --height=50 || exit 1
+    
 
     zenity --info --title="Installation Complete" --text="Pokerogue has been successfully installed/updated." --width=300 --height=50
 elif [ "$CHOICE" == "Uninstall Pokerogue" ]; then
