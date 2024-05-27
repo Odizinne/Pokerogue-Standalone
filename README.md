@@ -39,7 +39,7 @@ Use the provided DEB / RPM installers or:
 - Add `--no-sandbox` as launch argument.
 - (Optional) Select 1280x720 in game properties to center the window and toggle for any internal/external screen.
 
-Changelog and all versions [here]([https://github.com/Odizinne/Pokerogue-Standalone/releases/latest](https://github.com/Odizinne/Pokerogue-Standalone/releases)).
+Changelog and all versions [here](https://github.com/Odizinne/Pokerogue-Standalone/releases).
 
 ## Usage
 
