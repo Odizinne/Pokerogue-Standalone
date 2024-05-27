@@ -15,9 +15,9 @@ trap cleanup EXIT
 
 POKEROGUE_DIR="$HOME/.local/bin/Pokerogue"
 if [ -d "$POKEROGUE_DIR" ]; then
-    CHOICE=$(zenity --list --title="Pokerogue Installer" --radiolist --column "Select" --column "Action" TRUE "Install/Update Pokerogue" FALSE "Uninstall Pokerogue" FALSE "Exit" --width=300 --height=328)
+    CHOICE=$(zenity --list --title="Pokerogue Installer" --radiolist --column "Select" --column "Action" TRUE "Install/Update Pokerogue" FALSE "Uninstall Pokerogue" FALSE "Exit" --width=300 --height=203)
 else
-    CHOICE=$(zenity --list --title="Pokerogue Installer" --radiolist --column "Select" --column "Action" TRUE "Install/Update Pokerogue" FALSE "Exit" --width=300 --height=286)
+    CHOICE=$(zenity --list --title="Pokerogue Installer" --radiolist --column "Select" --column "Action" TRUE "Install/Update Pokerogue" FALSE "Exit" --width=300 --height=176)
 fi
 
 if [ $? -ne 0 ]; then
@@ -29,7 +29,7 @@ if [ "$CHOICE" == "Install/Update Pokerogue" ]; then
     if curl -L -o "$TEMP_DIR/Pokerogue-Linux.zip" $(curl -s https://api.github.com/repos/Odizinne/Pokerogue-Standalone/releases/latest | grep "browser_download_url.*Pokerogue-Linux.zip" | cut -d '"' -f 4); then
         echo "Download completed successfully."
     else
-        zenity --error --title="Error" --text="Failed to download the latest release. Please check your internet connection and try again."
+        zenity --error --title="Error" --text="Failed to download the latest release. Please check your internet connection and try again." --width=300 --height=50
         exit 1
     fi
 
@@ -46,7 +46,7 @@ if [ "$CHOICE" == "Install/Update Pokerogue" ]; then
     echo "Running the install.sh script..."
     ./install.sh
 
-    zenity --info --title="Installation Complete" --text="Pokerogue has been successfully installed/updated."
+    zenity --info --title="Installation Complete" --text="Pokerogue has been successfully installed/updated." --width=300 --height=50
 elif [ "$CHOICE" == "Uninstall Pokerogue" ]; then
     UNINSTALL_SCRIPT="$POKEROGUE_DIR/uninstall.sh"
     if [ -f "$UNINSTALL_SCRIPT" ]; then
@@ -54,7 +54,7 @@ elif [ "$CHOICE" == "Uninstall Pokerogue" ]; then
         chmod +x "$UNINSTALL_SCRIPT"
         echo "Running the uninstall.sh script..."
         "$UNINSTALL_SCRIPT"
-        zenity --info --title="Uninstallation Complete" --text="Pokerogue has been successfully uninstalled."
+        zenity --info --title="Uninstallation Complete" --text="Pokerogue has been successfully uninstalled." --width=300 --height=50
     else
         zenity --error --title="Error" --text="Uninstall script not found at $UNINSTALL_SCRIPT"
         exit 1
