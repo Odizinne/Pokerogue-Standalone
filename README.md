@@ -18,11 +18,12 @@ If you want a more featured app, please have a look at [Pokerogue-App](https://g
 
 | Platform | Arch | Link |
 | --- | --- | --- |
-| Windows Installer | x64 | [Download](https://github.com/Odizinne/Pokerogue-Standalone/releases/download/1.8.0/Pokerogue-Installer.exe) |
-| Windows Portable | x64 | [Download](https://github.com/Odizinne/Pokerogue-Standalone/releases/download/1.8.0/Pokerogue-Win.zip) |
-| Linux DEB | x64 | [Download](https://github.com/Odizinne/Pokerogue-Standalone/releases/download/1.8.0/Pokerogue.deb) |
-| Linux RPM | x64 | [Download](https://github.com/Odizinne/Pokerogue-Standalone/releases/download/1.8.0/Pokerogue.rpm) |
-| Linux Portable | x64 | [Download](https://github.com/Odizinne/Pokerogue-Standalone/releases/download/1.8.0/Pokerogue-Linux.zip) |
+| Windows Installer | x64 | [Download](https://github.com/Odizinne/Pokerogue-Standalone/releases/download/1.8.1/Pokerogue-Installer.exe) |
+| Windows Portable | x64 | [Download](https://github.com/Odizinne/Pokerogue-Standalone/releases/download/1.8.1/Pokerogue-Win.zip) |
+| Linux DEB | x64 | [Download](https://github.com/Odizinne/Pokerogue-Standalone/releases/download/1.8.1/Pokerogue.deb) |
+| Linux RPM | x64 | [Download](https://github.com/Odizinne/Pokerogue-Standalone/releases/download/1.8.1/Pokerogue.rpm) |
+| Linux Portable | x64 | [Download](https://github.com/Odizinne/Pokerogue-Standalone/releases/download/1.8.1/Pokerogue-Linux.zip) |
+| SteamDeck | x64 | [Download](https://raw.githubusercontent.com/Odizinne/Pokerogue-Standalone/main/SteamDeck/pokerogue-installer.desktop) |
 
 ### Windows
 Use the prebuilt installer or manually extract the zip file.
