@@ -50,7 +50,7 @@ if [ "$CHOICE" == "Install/Update Pokerogue" ]; then
     (
         perform_installation
         echo "Installation complete."
-    ) | zenity --progress --title="Installing Pokerogue" --text="Downloading, extracting, and installing..." --pulsate --auto-close
+    ) | zenity --progress --title="Installing Pokerogue" --text="Downloading, extracting, and installing..." --pulsate --auto-close --height=50
 
     zenity --info --title="Installation Complete" --text="Pokerogue has been successfully installed/updated." --width=300 --height=50
 elif [ "$CHOICE" == "Uninstall Pokerogue" ]; then
