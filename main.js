@@ -33,7 +33,6 @@ async function createWindow() {
         }
 
         await setupRequestInterceptor(mainWindow);
-        mainWindow.webContents.send('setup-mouse-move-handler', defaultCursor);
         mainWindow.setSize(1280, 750);
         mainWindow.center();
         mainWindow.setFullScreen(!noFullscreen);
@@ -65,6 +64,10 @@ async function createWindow() {
     mainWindow.on('blur', () => {
         globalShortcut.unregisterAll();
         mainWindow.webContents.removeAllListeners('before-input-event');
+    });
+
+    mainWindow.webContents.on('did-finish-load', () => {
+        mainWindow.webContents.send('setup-mouse-move-handler', defaultCursor);
     });
 }
 
