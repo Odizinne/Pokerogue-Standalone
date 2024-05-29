@@ -1,4 +1,12 @@
 # Pokerogue-Standalone
+- [Features](#features)
+- [Download and installation](#download-and-installation)
+  - [Windows](#windows)
+  - [Linux](#linux)
+    - [Steam Deck](#steam-deck)
+    - [Others](#others)
+- [Usage](#usage)
+- [Build](#build)
 
 **This is a simple electron app that runs [Pokérogue](https://pokerogue.net/) on fullscreen by default.**
 
