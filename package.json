@@ -12,6 +12,7 @@
     "start:defaultcursor": "electron . --default-cursor",
     "start:nofullscreen": "electron . --no-fullscreen",
     "start:disablecss": "electron . --disable-css",
+    "start:nohidecursor": "electron . --no-hide-cursor",
     "build:win-nsis": "electron-builder --config build-configs/win-nsis.json --publish never",
     "build:win-zip": "electron-builder --config build-configs/win-zip.json --publish never",
     "build:linux-zip": "electron-builder --config build-configs/linux-zip.json --publish never",

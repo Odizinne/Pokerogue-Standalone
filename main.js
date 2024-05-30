@@ -9,6 +9,7 @@ async function createWindow() {
     const noFullscreen = process.argv.includes('--no-fullscreen');
     const defaultCursor = process.argv.includes('--default-cursor');
     const disableCSS = process.argv.includes('--disable-css');
+    const noHideCursor = process.argv.includes('--no-hide-cursor');
     const isLinux = process.platform === 'linux';
 
     mainWindow = new BrowserWindow({
@@ -67,7 +68,7 @@ async function createWindow() {
     });
 
     mainWindow.webContents.on('did-finish-load', () => {
-        mainWindow.webContents.send('setup-mouse-move-handler', defaultCursor);
+        mainWindow.webContents.send('setup-mouse-move-handler', defaultCursor, noHideCursor);
     });
 }
 
