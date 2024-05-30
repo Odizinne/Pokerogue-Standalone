@@ -16,7 +16,6 @@ I made this app with couch gaming / Steam Deck in mind.
 
 Every feature listed here is enabled by default but can be disabled:
 - Custom Pokérogue themed mouse cursor <img src="https://raw.githubusercontent.com/Odizinne/Pokerogue-Standalone/main/PR_cursor.png" alt="PR cursor" width="32" height="32">
-
 - Hide mouse cursor on idle
 - Changed background color to pitch black
 - Fullscreen by default
@@ -27,11 +26,11 @@ If you want a more featured app, please have a look at [Pokerogue-App](https://g
 
 | Platform | Arch | Link |
 | --- | --- | --- |
-| Windows Installer | x64 | [Download](https://github.com/Odizinne/Pokerogue-Standalone/releases/download/1.8.2/Pokerogue-Installer.exe) |
-| Windows Portable | x64 | [Download](https://github.com/Odizinne/Pokerogue-Standalone/releases/download/1.8.2/Pokerogue-Win.zip) |
-| Linux DEB | x64 | [Download](https://github.com/Odizinne/Pokerogue-Standalone/releases/download/1.8.2/Pokerogue.deb) |
-| Linux RPM | x64 | [Download](https://github.com/Odizinne/Pokerogue-Standalone/releases/download/1.8.2/Pokerogue.rpm) |
-| Linux Portable | x64 | [Download](https://github.com/Odizinne/Pokerogue-Standalone/releases/download/1.8.2/Pokerogue-Linux.zip) |
+| Windows Installer | x64 | [Download](https://github.com/Odizinne/Pokerogue-Standalone/releases/download/1.9.0/Pokerogue-Installer.exe) |
+| Windows Portable | x64 | [Download](https://github.com/Odizinne/Pokerogue-Standalone/releases/download/1.9.0/Pokerogue-Win.zip) |
+| Linux DEB | x64 | [Download](https://github.com/Odizinne/Pokerogue-Standalone/releases/download/1.9.0/Pokerogue.deb) |
+| Linux RPM | x64 | [Download](https://github.com/Odizinne/Pokerogue-Standalone/releases/download/1.9.0/Pokerogue.rpm) |
+| Linux Portable | x64 | [Download](https://github.com/Odizinne/Pokerogue-Standalone/releases/download/1.9.0/Pokerogue-Linux.zip) |
 | SteamDeck (right click, Save link as...) | x64 | [Download](https://raw.githubusercontent.com/Odizinne/Pokerogue-Standalone/main/SteamDeck/pokerogue-installer.desktop) |
 
 ### Windows
