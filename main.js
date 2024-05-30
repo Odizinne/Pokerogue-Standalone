@@ -1,4 +1,4 @@
-const { app, BrowserWindow, globalShortcut } = require('electron');
+const { app, BrowserWindow, globalShortcut, dialog } = require('electron');
 const path = require('path');
 const fs = require('fs');
 const setupRequestInterceptor = require('./interceptor');
@@ -38,6 +38,11 @@ async function createWindow() {
         mainWindow.center();
         mainWindow.setFullScreen(!noFullscreen);
         mainWindow.show();
+    });
+
+    mainWindow.webContents.on('did-fail-load', () => {
+        dialog.showErrorBox('Network Error', 'Unable to connect to Pokérogue servers.');
+        app.quit();
     });
 
     mainWindow.on('closed', () => {
