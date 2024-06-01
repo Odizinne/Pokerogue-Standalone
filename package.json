@@ -20,7 +20,7 @@
     "build:linux-rpm": "electron-builder --config build-configs/linux-rpm.json --publish never"
   },
   "devDependencies": {
-    "electron": "^29.4.0",
+    "electron": "^29.4.2",
     "electron-builder": "^24.13.3"
   },
   "build": {

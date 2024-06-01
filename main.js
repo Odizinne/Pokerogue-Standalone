@@ -10,12 +10,12 @@ async function createWindow() {
     const defaultCursor = process.argv.includes('--default-cursor');
     const disableCSS = process.argv.includes('--disable-css');
     const noHideCursor = process.argv.includes('--no-hide-cursor');
-    const isLinux = process.platform === 'linux';
 
     mainWindow = new BrowserWindow({
-        width: 800,
-        height: 600,
-        show: isLinux,
+        width: 1280,
+        height: 720,
+        show: false,
+        fullscreen: !noFullscreen,
         webPreferences: {
             nodeIntegration: true,
             preload: path.join(__dirname, 'preload.js'),
@@ -28,16 +28,13 @@ async function createWindow() {
     mainWindow.webContents.on('did-finish-load', async () => {
         const cssPath = path.join(__dirname, 'styles.css');
         const css = fs.readFileSync(cssPath, 'utf-8');
-
         if (!disableCSS) {
             mainWindow.webContents.insertCSS(css);
         }
 
         await setupRequestInterceptor(mainWindow);
-        mainWindow.setSize(1280, 750);
-        mainWindow.center();
-        mainWindow.setFullScreen(!noFullscreen);
         mainWindow.show();
+        mainWindow.center();
     });
 
     mainWindow.webContents.on('did-fail-load', () => {
