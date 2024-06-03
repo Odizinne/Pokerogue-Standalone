@@ -1,8 +1,7 @@
-const { app, BrowserWindow, globalShortcut, dialog } = require('electron');
+const { app, BrowserWindow, globalShortcut, dialog, screen } = require('electron');
 const path = require('path');
 const fs = require('fs');
 const setupRequestInterceptor = require('./interceptor');
-
 let mainWindow;
 
 async function createWindow() {
@@ -14,8 +13,8 @@ async function createWindow() {
     mainWindow = new BrowserWindow({
         width: 1280,
         height: 720,
-        show: false,
-        fullscreen: !noFullscreen,
+        show: true,
+        fullscreen: false,
         webPreferences: {
             nodeIntegration: true,
             preload: path.join(__dirname, 'preload.js'),
@@ -31,10 +30,8 @@ async function createWindow() {
         if (!disableCSS) {
             mainWindow.webContents.insertCSS(css);
         }
-
         await setupRequestInterceptor(mainWindow);
-        mainWindow.show();
-        mainWindow.center();
+        mainWindow.setFullScreen(!noFullscreen);
     });
 
     mainWindow.webContents.on('did-fail-load', () => {
