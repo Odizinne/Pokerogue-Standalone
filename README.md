@@ -47,6 +47,7 @@ Getting it to work in gamemode:
 - Add `Pokerogue` as a non steam game.
 - Add `--no-sandbox` as launch argument.
 - (Optional) Select 1280x720 in game properties to center the window and toggle for any internal/external screen.
+- (Optional) If you encounder [#1213](https://github.com/pagefaultgames/pokerogue/issues/1213), select 2560x1440 instead (1920x1080 looks blurry).
 
 #### **Others**:
 
