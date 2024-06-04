@@ -1,7 +1,6 @@
 const { app, BrowserWindow, globalShortcut, dialog, screen } = require('electron');
 const path = require('path');
 const fs = require('fs');
-const setupRequestInterceptor = require('./interceptor');
 let mainWindow;
 
 async function createWindow() {
@@ -11,10 +10,10 @@ async function createWindow() {
     const noHideCursor = process.argv.includes('--no-hide-cursor');
 
     mainWindow = new BrowserWindow({
-        width: 1280,
-        height: 720,
+        width: 1920,
+        height: 1080,
         show: true,
-        fullscreen: false,
+        fullscreen: !noFullscreen,
         webPreferences: {
             nodeIntegration: true,
             preload: path.join(__dirname, 'preload.js'),
@@ -29,9 +28,8 @@ async function createWindow() {
         const css = fs.readFileSync(cssPath, 'utf-8');
         if (!disableCSS) {
             mainWindow.webContents.insertCSS(css);
+            mainWindow.webContents.send('setup-mouse-move-handler', defaultCursor, noHideCursor);
         }
-        await setupRequestInterceptor(mainWindow);
-        mainWindow.setFullScreen(!noFullscreen);
     });
 
     mainWindow.webContents.on('did-fail-load', () => {
@@ -64,10 +62,6 @@ async function createWindow() {
     mainWindow.on('blur', () => {
         globalShortcut.unregisterAll();
         mainWindow.webContents.removeAllListeners('before-input-event');
-    });
-
-    mainWindow.webContents.on('did-finish-load', () => {
-        mainWindow.webContents.send('setup-mouse-move-handler', defaultCursor, noHideCursor);
     });
 }
 
