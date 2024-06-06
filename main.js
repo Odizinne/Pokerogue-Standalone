@@ -36,7 +36,7 @@ async function createWindow() {
 
   mainWindow.setMenu(null);
   mainWindow.loadURL('https://pokerogue.net/');
-  mainWindow.webContents.on('did-finish-load', async () => {
+  mainWindow.webContents.on('did-finish-load', () => {
     const cssPath = path.join(__dirname, 'styles.css');
     const css = fs.readFileSync(cssPath, 'utf-8');
     if (!disableCSS) {
