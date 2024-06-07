@@ -23,10 +23,11 @@ async function createWindow() {
   const noHideCursor = process.argv.includes('--no-hide-cursor');
 
   mainWindow = new BrowserWindow({
-    width: 1920,
-    height: 1080,
+    width: 1280,
+    height: 720,
     show: true,
     fullscreen: !noFullscreen,
+    frame: false,
     webPreferences: {
       nodeIntegration: true,
       preload: path.join(__dirname, 'preload.js'),
