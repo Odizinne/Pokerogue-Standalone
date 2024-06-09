@@ -49,6 +49,10 @@ async function createWindow({ noFullscreen, defaultCursor, disableCSS, noHideCur
     mainWindow.show();
   });
 
+  mainWindow.webContents.on('did-finish-load',  () => {
+    mainWindow.webContents.send('setup-mouse-move-handler', defaultCursor, noHideCursor);
+  });
+  
   mainWindow.webContents.on('did-fail-load', () => {
     dialog.showErrorBox('Network Error', 'Unable to connect to Pokérogue servers.');
     app.quit();
