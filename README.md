@@ -26,11 +26,11 @@ If you want a more featured app, please have a look at [Pokerogue-App](https://g
 
 | Platform | Arch | Link |
 | --- | --- | --- |
-| Windows Installer | x64 | [Download](https://github.com/Odizinne/Pokerogue-Standalone/releases/download/1.9.0/Pokerogue-Installer.exe) |
-| Windows Portable | x64 | [Download](https://github.com/Odizinne/Pokerogue-Standalone/releases/download/1.9.0/Pokerogue-Win.zip) |
-| Linux DEB | x64 | [Download](https://github.com/Odizinne/Pokerogue-Standalone/releases/download/1.9.0/Pokerogue.deb) |
-| Linux RPM | x64 | [Download](https://github.com/Odizinne/Pokerogue-Standalone/releases/download/1.9.0/Pokerogue.rpm) |
-| Linux Portable | x64 | [Download](https://github.com/Odizinne/Pokerogue-Standalone/releases/download/1.9.0/Pokerogue-Linux.zip) |
+| Windows Installer | x64 | [Download](https://github.com/Odizinne/Pokerogue-Standalone/releases/download/1.10.0/Pokerogue-Installer.exe) |
+| Windows Portable | x64 | [Download](https://github.com/Odizinne/Pokerogue-Standalone/releases/download/1.10.0/Pokerogue-Win.zip) |
+| Linux DEB | x64 | [Download](https://github.com/Odizinne/Pokerogue-Standalone/releases/download/1.10.0/Pokerogue.deb) |
+| Linux RPM | x64 | [Download](https://github.com/Odizinne/Pokerogue-Standalone/releases/download/1.10.0/Pokerogue.rpm) |
+| Linux Portable | x64 | [Download](https://github.com/Odizinne/Pokerogue-Standalone/releases/download/1.10.0/Pokerogue-Linux.zip) |
 | SteamDeck (right click, Save link as...) | x64 | [Download](https://raw.githubusercontent.com/Odizinne/Pokerogue-Standalone/main/SteamDeck/pokerogue-installer.desktop) |
 
 ### Windows
@@ -47,7 +47,6 @@ Getting it to work in gamemode:
 - Add `Pokerogue` as a non steam game.
 - Add `--no-sandbox` as launch argument.
 - (Optional) Select 1280x720 in game properties to center the window and toggle for any internal/external screen.
-- (Optional) If you encounder [#1213](https://github.com/pagefaultgames/pokerogue/issues/1213), select 2560x1440 instead (1920x1080 looks blurry).
 
 #### **Others**:
 
