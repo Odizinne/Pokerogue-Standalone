@@ -24,6 +24,7 @@ function setupMouseMoveHandler(defaultCursor, noHideCursor) {
             startCursorTimer();
         };
 
+        startCursorTimer();
         document.addEventListener('mousemove', resetCursorTimer);
         document.addEventListener('mouseenter', resetCursorTimer);
     }
