@@ -1,4 +1,6 @@
 # Pokerogue-Standalone
+[![Github All Releases](https://img.shields.io/github/downloads/odizinne/Pokerogue-Standalone/total.svg)]()
+[![license](https://img.shields.io/github/license/odizinne/Pokerogue-Standalone)]()
 
 **This is a simple electron app that runs [Pokérogue](https://pokerogue.net/) on fullscreen by default.**
 
